@@ -70,13 +70,9 @@ class HttpLlmGateway:
         classify_message = [
             SystemMessage(
                 content=(
-                    "너는 질의 라우터다.\n"
-                    "규칙:\n"
-                    "1) 문서/근거/검색/참조/출처/요약 요청이 있으면 rag\n"
-                    "2) 일반 대화/창작/간단 설명은 general\n"
-                    "출력은 반드시 JSON 한 줄만 사용한다.\n"
-                    '허용 출력: {"intent":"rag"} 또는 {"intent":"general"}\n'
-                    "다른 키 금지, 설명 금지, 코드블록 금지."
+                    "You are an intent classifier. Output EXACTLY one-line JSON and nothing else. "
+                    "Valid outputs: {\"intent\":\"rag\"} or {\"intent\":\"general\"}. "
+                    "Do not add any explanation, do not wrap in markdown, do not print anything else."
                 )
             ),
             HumanMessage(content=f"질문: {user_message}")
