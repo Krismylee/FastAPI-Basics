@@ -18,7 +18,7 @@ from typing import Literal
 from src.services.llm_gateway import LlmGateway
 from src.services.rag_graph.state import ChatGraphState
 from src.services.rag_graph.state_keys import KEY_DOCUMENTS, KEY_INTENT, KEY_USER_MESSAGE
-from src.services.retrieval.mock_rag_store import get_mock_rag_documents
+from src.services.retrieval.mock_rag_store import get_mock_rag_documents, search_rag_documents
 
 
 class ClassifyIntentNode:
