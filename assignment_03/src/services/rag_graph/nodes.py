@@ -44,7 +44,11 @@ class MockRagNode:
 
     def __call__(self, state: ChatGraphState) -> ChatGraphState:
         """고정 문서 3개를 상태에 기록합니다."""
-        state[KEY_DOCUMENTS] = get_mock_rag_documents()
+        #state[KEY_DOCUMENTS] = get_mock_rag_documents()
+        query = state["user_message"]
+        documents = search_rag_documents(query)
+        #documents = get_rag_documents(query)
+        state[KEY_DOCUMENTS] = documents
         return state
 
 
