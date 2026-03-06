@@ -80,7 +80,7 @@ def search_rag_documents(query: str) -> list[RagDocument]:
     for item in results.get("result", []):
         documents.append(
             RagDocument(
-                title=item.get("title") or "",
+                title=item.get("source") or "",
                 content=item.get("content_kor") or item.get("content", ""),
                 page_number=item.get("page", 0),
             )
